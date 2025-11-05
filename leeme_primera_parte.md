@@ -1,8 +1,8 @@
-🛫 Proyecto: Aeropuerto
+🛫 PROYECTO: AEROPUERTO
 
-Lenguaje: Python
-Framework: Django
-Editor: VS Code
+LENGUAJE: Python
+FRAMEWORK: Django
+EDITOR: VS Code
 
 💥 ESTRUCTURA FINAL DEL PROYECTO
 UIII_aeropuerto_0409/
@@ -36,28 +36,28 @@ UIII_aeropuerto_0409/
 └── requirements.txt
 
 
-#Paso 1 — ¿Cómo crear la carpeta del proyecto UIII_aeropuerto_0409?
+#PASO 1 — ¿CÓMO CREAR LA CARPETA DEL PROYECTO UIII_AEROPUERTO_0409?
 
 mkdir UIII_aeropuerto_0409
 cd UIII_aeropuerto_0409
 
 
-#Paso 2 — ¿Cómo abrir VS Code sobre la carpeta del proyecto?
+#PASO 2 — ¿CÓMO ABRIR VS CODE SOBRE LA CARPETA DEL PROYECTO?
 
 code .
 
 
-#Paso 3 — ¿Cómo abrir la terminal en VS Code?
+#PASO 3 — ¿CÓMO ABRIR LA TERMINAL EN VS CODE?
 
 Presiona Ctrl + ñ o ve al menú superior:
 Ver → Terminal
 
-#Paso 4 — ¿Cómo crear la carpeta del entorno virtual “.venv”?
+#PASO 4 — ¿CÓMO CREAR LA CARPETA DEL ENTORNO VIRTUAL “.VENV”?
 
 python -m venv .venv
 
 
-#Paso 5 — ¿Cómo activar el entorno virtual?
+#PASO 5 — ¿CÓMO ACTIVAR EL ENTORNO VIRTUAL?
 
 Windows:
 
@@ -69,7 +69,7 @@ Mac/Linux:
 source .venv/bin/activate
 
 
-#Paso 6 — ¿Cómo activar el intérprete de Python en VS Code?
+#PASO 6 — ¿CÓMO ACTIVAR EL INTÉRPRETE DE PYTHON EN VS CODE?
 
 Presiona Ctrl + Shift + P
 
@@ -77,33 +77,33 @@ Escribe: Seleccionar intérprete de Python
 
 Elige la opción que diga .venv
 
-#Paso 7 — ¿Cómo instalar Django?
+#PASO 7 — ¿CÓMO INSTALAR DJANGO?
 
 pip install django
 pip freeze > requirements.txt
 
 
-#Paso 8 — ¿Cómo crear el proyecto backend_aeropuerto sin duplicar carpeta?
+#PASO 8 — ¿CÓMO CREAR EL PROYECTO BACKEND_AEROPUERTO SIN DUPLICAR CARPETA?
 
 django-admin startproject backend_aeropuerto .
 
 
-#Paso 9 — ¿Cómo ejecutar el servidor en el puerto 8036?
+#PASO 9 — ¿CÓMO EJECUTAR EL SERVIDOR EN EL PUERTO 8036?
 
 python manage.py runserver 8036
 
 
-#Paso 10 — ¿Cómo abrir el link del servidor en el navegador?
+#PASO 10 — ¿CÓMO ABRIR EL LINK DEL SERVIDOR EN EL NAVEGADOR?
 
 Copia y pega este enlace en tu navegador:
 👉 http://127.0.0.1:8036/
 
-#Paso 11 — ¿Cómo crear la aplicación app_aeropuerto?
+#PASO 11 — ¿CÓMO CREAR LA APLICACIÓN APP_AEROPUERTO?
 
 python manage.py startapp app_aeropuerto
 
 
-#Paso 12 — ¿Cuál es el contenido del archivo models.py?
+#PASO 12 — ¿CUÁL ES EL CONTENIDO DEL ARCHIVO MODELS.PY?
 
 from django.db import models
 
@@ -157,17 +157,17 @@ class Empleado(models.Model):
         return f"{self.nombre} {self.apellido}"
 
 
-#Paso 12.5 — ¿Cómo realizar las migraciones?
+#PASO 12.5 — ¿CÓMO REALIZAR LAS MIGRACIONES?
 
 python manage.py makemigrations
 python manage.py migrate
 
 
-#Paso 13 — ¿Con qué modelo se trabaja primero?
+#PASO 13 — ¿CON QUÉ MODELO SE TRABAJA PRIMERO?
 
-👉 Con el modelo AVION
+👉 Con el MODELO AVION
 
-#Paso 14 — ¿Cómo crear las funciones en views.py para CRUD de Avión?
+#PASO 14 — ¿CÓMO CREAR LAS FUNCIONES EN VIEWS.PY PARA CRUD DE AVIÓN?
 
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Avion
@@ -218,14 +218,12 @@ def borrar_avion(request, id):
     return render(request, 'avion/borrar_avion.html', {'avion': avion})
 
 
-#Paso 15 — ¿Cómo crear la carpeta templates dentro de app_aeropuerto?
+#PASO 15 — ¿CÓMO CREAR LA CARPETA TEMPLATES DENTRO DE APP_AEROPUERTO?
 
 mkdir app_aeropuerto/templates
 
 
-#Paso 16 — ¿Qué archivos HTML se deben crear dentro de templates?
-
-👉 Crea estos archivos:
+#PASO 16 — ¿QUÉ ARCHIVOS HTML SE DEBEN CREAR DENTRO DE TEMPLATES?
 
 base.html
 header.html
@@ -234,7 +232,7 @@ footer.html
 inicio.html
 
 
-#Paso 17 — ¿Qué incluir en base.html?
+#PASO 17 — ¿QUÉ INCLUIR EN BASE.HTML?
 
 <!DOCTYPE html>
 <html lang="es">
@@ -255,9 +253,7 @@ inicio.html
 </html>
 
 
-#Paso 18 — ¿Cómo debe ser navbar.html?
-
-Incluye menú principal, submenús e íconos (ejemplo con Bootstrap):
+#PASO 18 — ¿CÓMO DEBE SER NAVBAR.HTML?
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
@@ -278,14 +274,14 @@ Incluye menú principal, submenús e íconos (ejemplo con Bootstrap):
 </nav>
 
 
-#Paso 19 — ¿Qué debe tener footer.html?
+#PASO 19 — ¿QUÉ DEBE TENER FOOTER.HTML?
 
 <footer class="bg-dark text-white text-center py-2 fixed-bottom">
   <p>© {{ now|date:"Y" }} - Creado por Ing. Bryan Villalobos, CBTis 128</p>
 </footer>
 
 
-#Paso 20 — ¿Qué debe contener inicio.html?
+#PASO 20 — ¿QUÉ DEBE CONTENER INICIO.HTML?
 
 {% extends 'base.html' %}
 {% block content %}
@@ -294,12 +290,12 @@ Incluye menú principal, submenús e íconos (ejemplo con Bootstrap):
 {% endblock %}
 
 
-#Paso 21 — ¿Cómo crear la carpeta de aviones dentro de templates?
+#PASO 21 — ¿CÓMO CREAR LA CARPETA DE AVIONES DENTRO DE TEMPLATES?
 
 mkdir app_aeropuerto/templates/avion
 
 
-#Paso 22 — ¿Qué archivos HTML se crean dentro de /templates/avion?
+#PASO 22 — ¿QUÉ ARCHIVOS HTML SE CREAN DENTRO DE /TEMPLATES/AVION?
 
 agregar_avion.html
 ver_aviones.html
@@ -307,13 +303,11 @@ actualizar_avion.html
 borrar_avion.html
 
 
-(Cada uno con sus formularios y tablas básicos para CRUD sin forms.py)
+#PASO 23 — ¿SE UTILIZA FORMS.PY?
 
-#Paso 23 — ¿Se utiliza forms.py?
+❌ No se utiliza forms.py
 
-❌ No, no se utiliza forms.py
-
-#Paso 24 — ¿Cómo crear el archivo urls.py en app_aeropuerto?
+#PASO 24 — ¿CÓMO CREAR EL ARCHIVO URLS.PY EN APP_AEROPUERTO?
 
 from django.urls import path
 from . import views
@@ -328,7 +322,7 @@ urlpatterns = [
 ]
 
 
-#Paso 25 — ¿Cómo agregar la app en settings.py?
+#PASO 25 — ¿CÓMO AGREGAR LA APP EN SETTINGS.PY?
 
 INSTALLED_APPS = [
     ...,
@@ -336,9 +330,7 @@ INSTALLED_APPS = [
 ]
 
 
-#Paso 26 — ¿Cómo enlazar urls.py del proyecto con app_aeropuerto?
-
-En backend_aeropuerto/urls.py agrega:
+#PASO 26 — ¿CÓMO ENLAZAR URLS.PY DEL PROYECTO CON APP_AEROPUERTO?
 
 from django.contrib import admin
 from django.urls import path, include
@@ -349,7 +341,7 @@ urlpatterns = [
 ]
 
 
-#Paso 27 — ¿Cómo registrar los modelos en admin.py?
+#PASO 27 — ¿CÓMO REGISTRAR LOS MODELOS EN ADMIN.PY?
 
 from django.contrib import admin
 from .models import Avion, Vuelo, Empleado
@@ -359,25 +351,26 @@ admin.site.register(Vuelo)
 admin.site.register(Empleado)
 
 
-Luego ejecuta:
+Luego:
 
 python manage.py makemigrations
 python manage.py migrate
 
 
-#Paso 28 — ¿Qué colores o estilo usar?
+#PASO 28 — ¿QUÉ COLORES O ESTILO USAR?
 
-👉 Colores suaves, modernos y atractivos.
-Usa Bootstrap, tonos azul, gris, blanco.
+👉 Colores suaves, modernos y atractivos (azul, gris, blanco).
+Usa Bootstrap 5.
 
-#Paso 29 — ¿Validación de datos?
+#PASO 29 — ¿VALIDACIÓN DE DATOS?
+
 ❌ No validar datos.
 
-#Paso 30 — ¿Qué hacer al inicio del proyecto?
+#PASO 30 — ¿QUÉ HACER AL INICIO DEL PROYECTO?
 
 ✅ Crear toda la estructura de carpetas y archivos antes de programar.
 
-#Paso 31 — ¿Finalmente ejecutar el servidor en el puerto 8036?
+#PASO 31 — ¿FINALMENTE EJECUTAR EL SERVIDOR EN EL PUERTO 8036?
 
 python manage.py runserver 8036
 

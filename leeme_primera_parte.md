@@ -1,110 +1,100 @@
-🛫 PROYECTO: AEROPUERTO
+# ✈️ PROYECTO: AEROPUERTO  
+**Lenguaje:** Python  
+**Framework:** Django  
+**Editor:** VS Code  
 
-LENGUAJE: Python
-FRAMEWORK: Django
-EDITOR: VS Code
+---
 
-💥 ESTRUCTURA FINAL DEL PROYECTO
-UIII_aeropuerto_0409/
-├── .venv/                        # Entorno virtual
-├── backend_aeropuerto/           # Proyecto principal
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── app_aeropuerto/               # Aplicación principal
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
-│   ├── migrations/
-│   │   └── __init__.py
-│   └── templates/
-│       ├── base.html
-│       ├── header.html
-│       ├── navbar.html
-│       ├── footer.html
-│       ├── inicio.html
-│       └── avion/
-│           ├── agregar_avion.html
-│           ├── ver_aviones.html
-│           ├── actualizar_avion.html
-│           └── borrar_avion.html
-├── manage.py
-└── requirements.txt
-
-
-#PASO 1 — ¿CÓMO CREAR LA CARPETA DEL PROYECTO UIII_AEROPUERTO_0409?
-
+# 🧱 PASO 1 — PROCEDIMIENTO PARA CREAR CARPETA DEL PROYECTO: UIII_aeropuerto_0409  
+Abrir una carpeta de trabajo en tu computadora y crear el proyecto principal:  
+```bash
 mkdir UIII_aeropuerto_0409
-cd UIII_aeropuerto_0409
+```
 
+---
 
-#PASO 2 — ¿CÓMO ABRIR VS CODE SOBRE LA CARPETA DEL PROYECTO?
+# 💻 PASO 2 — PROCEDIMIENTO PARA ABRIR VS CODE SOBRE LA CARPETA UIII_aeropuerto_0409  
+Abrir la carpeta creada directamente desde VS Code:  
+```bash
+code UIII_aeropuerto_0409
+```
 
-code .
+---
 
+# 🧭 PASO 3 — PROCEDIMIENTO PARA ABRIR TERMINAL EN VS CODE  
+En VS Code, ir a:  
+**Ver → Terminal**  
+o presionar **Ctrl + ñ**
 
-#PASO 3 — ¿CÓMO ABRIR LA TERMINAL EN VS CODE?
+---
 
-Presiona Ctrl + ñ o ve al menú superior:
-Ver → Terminal
-
-#PASO 4 — ¿CÓMO CREAR LA CARPETA DEL ENTORNO VIRTUAL “.VENV”?
-
+# 🐍 PASO 4 — PROCEDIMIENTO PARA CREAR CARPETA ENTORNO VIRTUAL “.venv” DESDE TERMINAL DE VS CODE  
+En la terminal, ejecutar:  
+```bash
 python -m venv .venv
+```
 
+---
 
-#PASO 5 — ¿CÓMO ACTIVAR EL ENTORNO VIRTUAL?
-
-Windows:
-
+# ⚙️ PASO 5 — PROCEDIMIENTO PARA ACTIVAR EL ENTORNO VIRTUAL  
+Activar el entorno virtual:  
+```bash
 .venv\Scripts\activate
+```
 
+---
 
-Mac/Linux:
+# 🧩 PASO 6 — PROCEDIMIENTO PARA ACTIVAR INTÉRPRETE DE PYTHON  
+En VS Code:  
+- Presiona **Ctrl + Shift + P**  
+- Escribe: `Python: Select Interpreter`  
+- Selecciona el entorno: **.venv**
 
-source .venv/bin/activate
+---
 
-
-#PASO 6 — ¿CÓMO ACTIVAR EL INTÉRPRETE DE PYTHON EN VS CODE?
-
-Presiona Ctrl + Shift + P
-
-Escribe: Seleccionar intérprete de Python
-
-Elige la opción que diga .venv
-
-#PASO 7 — ¿CÓMO INSTALAR DJANGO?
-
+# 📦 PASO 7 — PROCEDIMIENTO PARA INSTALAR DJANGO  
+En la terminal (con el entorno activado):  
+```bash
 pip install django
-pip freeze > requirements.txt
+```
 
+---
 
-#PASO 8 — ¿CÓMO CREAR EL PROYECTO BACKEND_AEROPUERTO SIN DUPLICAR CARPETA?
-
+# 🏗️ PASO 8 — PROCEDIMIENTO PARA CREAR PROYECTO backend_aeropuerto SIN DUPLICAR CARPETA  
+```bash
 django-admin startproject backend_aeropuerto .
+```
+> Nota: el punto al final evita crear carpetas duplicadas.
 
+---
 
-#PASO 9 — ¿CÓMO EJECUTAR EL SERVIDOR EN EL PUERTO 8036?
-
+# 🚀 PASO 9 — PROCEDIMIENTO PARA EJECUTAR SERVIDOR EN EL PUERTO 8036  
+```bash
 python manage.py runserver 8036
+```
 
+---
 
-#PASO 10 — ¿CÓMO ABRIR EL LINK DEL SERVIDOR EN EL NAVEGADOR?
+# 🌐 PASO 10 — PROCEDIMIENTO PARA COPIAR Y PEGAR EL LINK EN EL NAVEGADOR  
+Copiar el enlace que aparece en la terminal, por ejemplo:  
+```
+http://127.0.0.1:8036/
+```
+y pegarlo en el navegador.
 
-Copia y pega este enlace en tu navegador:
-👉 http://127.0.0.1:8036/
+---
 
-#PASO 11 — ¿CÓMO CREAR LA APLICACIÓN APP_AEROPUERTO?
-
+# 🧰 PASO 11 — PROCEDIMIENTO PARA CREAR APLICACIÓN app_aeropuerto  
+```bash
 python manage.py startapp app_aeropuerto
+```
 
+---
 
-#PASO 12 — ¿CUÁL ES EL CONTENIDO DEL ARCHIVO MODELS.PY?
+# 🧠 PASO 12 — AQUI EL MODELO models.py  
+Editar el archivo `app_aeropuerto/models.py` con el siguiente código:
 
+```python
 from django.db import models
 
 # ==========================================
@@ -122,7 +112,6 @@ class Avion(models.Model):
     def __str__(self):
         return f"{self.matricula} - {self.modelo}"
 
-
 # ==========================================
 # MODELO: VUELO
 # ==========================================
@@ -134,11 +123,11 @@ class Vuelo(models.Model):
     fecha_llegada = models.DateTimeField()
     duracion_horas = models.DecimalField(max_digits=5, decimal_places=2)
     estatus = models.CharField(max_length=30)
+
     avion = models.ForeignKey(Avion, on_delete=models.CASCADE, related_name="vuelos")
 
     def __str__(self):
         return f"{self.codigo_vuelo} ({self.origen} → {self.destino})"
-
 
 # ==========================================
 # MODELO: EMPLEADO
@@ -151,229 +140,224 @@ class Empleado(models.Model):
     fecha_contratacion = models.DateField()
     licencia = models.CharField(max_length=30)
     turno = models.CharField(max_length=20)
+
     aviones = models.ManyToManyField(Avion, related_name="empleados")
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
+```
 
+---
 
-#PASO 12.5 — ¿CÓMO REALIZAR LAS MIGRACIONES?
-
+# 🧩 PASO 12.5 — PROCEDIMIENTO PARA REALIZAR LAS MIGRACIONES (makemigrations Y migrate)  
+```bash
 python manage.py makemigrations
 python manage.py migrate
+```
 
+---
 
-#PASO 13 — ¿CON QUÉ MODELO SE TRABAJA PRIMERO?
+# ✈️ PASO 13 — PRIMERO TRABAJAMOS CON EL MODELO: AVION  
+Por ahora solo crearemos las vistas y plantillas del modelo **Avion**.
 
-👉 Con el MODELO AVION
+---
 
-#PASO 14 — ¿CÓMO CREAR LAS FUNCIONES EN VIEWS.PY PARA CRUD DE AVIÓN?
+# 🧮 PASO 14 — EN views.py CREAR LAS FUNCIONES CORRESPONDIENTES  
+En `app_aeropuerto/views.py` crear funciones:  
+`inicio_aeropuerto`, `agregar_avion`, `actualizar_avion`, `realizar_actualizacion_avion`, `borrar_avion`.
 
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Avion
+---
 
-def inicio_aeropuerto(request):
-    return render(request, 'inicio.html')
+# 🗂️ PASO 15 — CREAR LA CARPETA “templates” DENTRO DE app_aeropuerto  
+Ruta:  
+```
+app_aeropuerto/templates/
+```
 
-def agregar_avion(request):
-    if request.method == "POST":
-        Avion.objects.create(
-            matricula=request.POST['matricula'],
-            modelo=request.POST['modelo'],
-            fabricante=request.POST['fabricante'],
-            capacidad=request.POST['capacidad'],
-            anio_fabricacion=request.POST['anio_fabricacion'],
-            tipo=request.POST['tipo'],
-            estado=request.POST['estado']
-        )
-        return redirect('ver_aviones')
-    return render(request, 'avion/agregar_avion.html')
+---
 
-def ver_aviones(request):
-    aviones = Avion.objects.all()
-    return render(request, 'avion/ver_aviones.html', {'aviones': aviones})
-
-def actualizar_avion(request, id):
-    avion = get_object_or_404(Avion, id=id)
-    return render(request, 'avion/actualizar_avion.html', {'avion': avion})
-
-def realizar_actualizacion_avion(request, id):
-    avion = get_object_or_404(Avion, id=id)
-    if request.method == "POST":
-        avion.matricula = request.POST['matricula']
-        avion.modelo = request.POST['modelo']
-        avion.fabricante = request.POST['fabricante']
-        avion.capacidad = request.POST['capacidad']
-        avion.anio_fabricacion = request.POST['anio_fabricacion']
-        avion.tipo = request.POST['tipo']
-        avion.estado = request.POST['estado']
-        avion.save()
-        return redirect('ver_aviones')
-
-def borrar_avion(request, id):
-    avion = get_object_or_404(Avion, id=id)
-    if request.method == "POST":
-        avion.delete()
-        return redirect('ver_aviones')
-    return render(request, 'avion/borrar_avion.html', {'avion': avion})
-
-
-#PASO 15 — ¿CÓMO CREAR LA CARPETA TEMPLATES DENTRO DE APP_AEROPUERTO?
-
-mkdir app_aeropuerto/templates
-
-
-#PASO 16 — ¿QUÉ ARCHIVOS HTML SE DEBEN CREAR DENTRO DE TEMPLATES?
-
+# 🧾 PASO 16 — EN LA CARPETA templates CREAR LOS ARCHIVOS HTML (base, header, navbar, footer, inicio)  
+Archivos:
+```
 base.html
 header.html
 navbar.html
 footer.html
 inicio.html
+```
 
+---
 
-#PASO 17 — ¿QUÉ INCLUIR EN BASE.HTML?
+# 🎨 PASO 17 — EN base.html AGREGAR BOOTSTRAP PARA CSS Y JS  
+Incluir los CDN de Bootstrap en `<head>` y antes de `</body>`.
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>{% block title %}Sistema Aeropuerto{% endblock %}</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  {% include 'header.html' %}
-  {% include 'navbar.html' %}
-  <div class="container mt-4">
-      {% block content %}{% endblock %}
-  </div>
-  {% include 'footer.html' %}
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+---
 
+# 🧭 PASO 18 — EN navbar.html INCLUIR OPCIONES Y SUBMENÚS INDICADOS  
+Agregar menús:
+- Sistema de Administración Aeropuerto  
+- Inicio  
+- Avión (submenu: Agregar, Ver, Actualizar, Borrar)  
+- Vuelos (submenu: Agregar, Ver, Actualizar, Borrar)  
+- Empleados (submenu: Agregar, Ver, Actualizar, Borrar)  
+Con íconos en las opciones principales.
 
-#PASO 18 — ¿CÓMO DEBE SER NAVBAR.HTML?
+---
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">✈️ Sistema de Administración Aeropuerto</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Aviones</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'agregar_avion' %}">Agregar avión</a></li>
-            <li><a class="dropdown-item" href="{% url 'ver_aviones' %}">Ver aviones</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+# 🕓 PASO 19 — EN footer.html INCLUIR DERECHOS DE AUTOR Y CRÉDITOS  
+Texto fijo:  
+```
+© <fecha actual> Creado por Ing. Bryan Villalobos, Cbtis 128
+```
 
+---
 
-#PASO 19 — ¿QUÉ DEBE TENER FOOTER.HTML?
+# 🖼️ PASO 20 — EN inicio.html COLOCAR INFORMACIÓN DEL SISTEMA E IMAGEN DE AEROPUERTO  
+Agregar descripción breve y una imagen desde internet relacionada con aeropuertos.
 
-<footer class="bg-dark text-white text-center py-2 fixed-bottom">
-  <p>© {{ now|date:"Y" }} - Creado por Ing. Bryan Villalobos, CBTis 128</p>
-</footer>
+---
 
+# 🗃️ PASO 21 — CREAR SUBCARPETA avion DENTRO DE templates  
+Ruta:
+```
+app_aeropuerto/templates/avion/
+```
 
-#PASO 20 — ¿QUÉ DEBE CONTENER INICIO.HTML?
+---
 
-{% extends 'base.html' %}
-{% block content %}
-<h1 class="text-center">Bienvenido al Sistema de Administración del Aeropuerto</h1>
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Airport_Terminal.jpg" class="img-fluid rounded mx-auto d-block mt-4">
-{% endblock %}
-
-
-#PASO 21 — ¿CÓMO CREAR LA CARPETA DE AVIONES DENTRO DE TEMPLATES?
-
-mkdir app_aeropuerto/templates/avion
-
-
-#PASO 22 — ¿QUÉ ARCHIVOS HTML SE CREAN DENTRO DE /TEMPLATES/AVION?
-
-agregar_avion.html
-ver_aviones.html
-actualizar_avion.html
+# 🧱 PASO 22 — CREAR LOS ARCHIVOS HTML PARA CRUD DE AVION  
+Dentro de `app_aeropuerto/templates/avion/` crear:  
+```
+agregar_avion.html  
+ver_aviones.html  
+actualizar_avion.html  
 borrar_avion.html
+```
+> `ver_aviones.html` debe mostrar tabla con botones: **ver, editar, borrar**.
 
+---
 
-#PASO 23 — ¿SE UTILIZA FORMS.PY?
+# 🚫 PASO 23 — NO UTILIZAR forms.py  
+No se usarán formularios automáticos de Django.
 
-❌ No se utiliza forms.py
+---
 
-#PASO 24 — ¿CÓMO CREAR EL ARCHIVO URLS.PY EN APP_AEROPUERTO?
+# 🔗 PASO 24 — CREAR EL ARCHIVO urls.py EN app_aeropuerto  
+Crear `app_aeropuerto/urls.py` con las rutas para las vistas CRUD de Avión.
 
-from django.urls import path
-from . import views
+---
 
-urlpatterns = [
-    path('', views.inicio_aeropuerto, name='inicio'),
-    path('agregar/', views.agregar_avion, name='agregar_avion'),
-    path('ver/', views.ver_aviones, name='ver_aviones'),
-    path('actualizar/<int:id>/', views.actualizar_avion, name='actualizar_avion'),
-    path('realizar_actualizacion/<int:id>/', views.realizar_actualizacion_avion, name='realizar_actualizacion_avion'),
-    path('borrar/<int:id>/', views.borrar_avion, name='borrar_avion'),
-]
+# ⚙️ PASO 25 — AGREGAR app_aeropuerto EN settings.py  
+En `backend_aeropuerto/settings.py` dentro de `INSTALLED_APPS`:  
+```python
+'app_aeropuerto',
+```
 
+---
 
-#PASO 25 — ¿CÓMO AGREGAR LA APP EN SETTINGS.PY?
-
-INSTALLED_APPS = [
-    ...,
-    'app_aeropuerto',
-]
-
-
-#PASO 26 — ¿CÓMO ENLAZAR URLS.PY DEL PROYECTO CON APP_AEROPUERTO?
-
-from django.contrib import admin
+# 🌍 PASO 26 — CONFIGURAR urls.py DE backend_aeropuerto PARA ENLAZAR CON app_aeropuerto  
+En `backend_aeropuerto/urls.py`:  
+```python
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_aeropuerto.urls')),
 ]
+```
 
+---
 
-#PASO 27 — ¿CÓMO REGISTRAR LOS MODELOS EN ADMIN.PY?
-
+# 🧾 PASO 27 — REGISTRAR LOS MODELOS EN admin.py Y REALIZAR MIGRACIONES  
+En `app_aeropuerto/admin.py`:  
+```python
 from django.contrib import admin
 from .models import Avion, Vuelo, Empleado
 
 admin.site.register(Avion)
 admin.site.register(Vuelo)
 admin.site.register(Empleado)
-
-
-Luego:
-
+```
+Luego ejecutar:
+```bash
 python manage.py makemigrations
 python manage.py migrate
+```
 
+---
 
-#PASO 28 — ¿QUÉ COLORES O ESTILO USAR?
+# ✈️ PASO 27 (NOTA) — SOLO TRABAJAR CON AVION  
+Dejar **Vuelo** y **Empleado** pendientes.
 
-👉 Colores suaves, modernos y atractivos (azul, gris, blanco).
-Usa Bootstrap 5.
+---
 
-#PASO 29 — ¿VALIDACIÓN DE DATOS?
+# 🎨 PASO 28 — UTILIZAR COLORES SUAVES, ATRACTIVOS Y MODERNOS  
+Usar Bootstrap con tonos suaves (celeste, gris claro, blanco, etc.)
 
-❌ No validar datos.
+---
 
-#PASO 30 — ¿QUÉ HACER AL INICIO DEL PROYECTO?
+# 🧮 PASO 28 (NOTA) — NO VALIDAR ENTRADA DE DATOS  
+No implementar validaciones.
 
-✅ Crear toda la estructura de carpetas y archivos antes de programar.
+---
 
-#PASO 31 — ¿FINALMENTE EJECUTAR EL SERVIDOR EN EL PUERTO 8036?
+# 🧱 PASO 29 — AL INICIO CREAR LA ESTRUCTURA COMPLETA DE CARPETAS Y ARCHIVOS  
+Crear todas las carpetas y archivos base desde el inicio del proyecto.
 
+---
+
+# ✅ PASO 30 — PROYECTO TOTALMENTE FUNCIONAL  
+Verificar que todas las funciones CRUD de Avión operen correctamente.
+
+---
+
+# 🚀 PASO 31 — FINALMENTE EJECUTAR SERVIDOR EN EL PUERTO 8036  
+```bash
 python manage.py runserver 8036
+```
 
-
-👉 Abre en tu navegador:
+Abrir en navegador:
+```
 http://127.0.0.1:8036/
+```
+
+---
+
+# 📁 ESTRUCTURA FINAL DEL PROYECTO
+
+```
+UIII_aeropuerto_0409/
+│
+├── .venv/
+│
+├── backend_aeropuerto/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+│
+├── app_aeropuerto/
+│   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   ├── views.py
+│   └── templates/
+│       ├── base.html
+│       ├── header.html
+│       ├── navbar.html
+│       ├── footer.html
+│       ├── inicio.html
+│       └── avion/
+│           ├── agregar_avion.html
+│           ├── ver_aviones.html
+│           ├── actualizar_avion.html
+│           └── borrar_avion.html
+│
+├── manage.py
+└── db.sqlite3
+```
